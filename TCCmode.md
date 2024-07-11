@@ -11,7 +11,7 @@ Comfirm-phase, in this phase you should update state data in the Try-phase to "C
 
     
 **NOTICE**:  
-- When a transaction begin, it will start at a public function that mark @GlobalTransaction, and that function must be called from another Bean.  
+- When a global transaction begin, it must be started at a public function that mark @GlobalTransaction, and that function must be called from another Bean.  
   _e.g. beanA.call() -> beanB.excute(), NOT beanA.call() -> beanA.excute(). You can use debug to get more deeply dive._
 - Notice your global transaction timeout, if it reach timeout, all the transaction branch will be cancel
 - Comfirm and Cancel confirm phase is excute in another thread (acsyn), and will be retry until it success. You can create cronjobs to find there are some transaction stuck in Try state or check on Seata transaction monitor.
